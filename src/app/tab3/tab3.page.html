@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item detail routerLink="/configuracoes">
+    <ion-icon name="settings-outline" slot="start"></ion-icon>
+    <ion-label>Configurações</ion-label>
+  </ion-item>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col
+        size="6"
+        *ngFor="let photo of photoService.photos"
+      >
+        <ion-img [src]="photo.webviewPath"></ion-img>
+        <ion-button class="ion-text-center" color="danger" (click)="apagarFoto(photo)">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-fab vertical="bottom" horizontal="center">
+    <ion-fab-button (click)="tirarFoto()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab-button color="danger" (click)="deletarTodasFotos()">
+      <ion-icon name="trash"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

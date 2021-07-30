@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item-group>
+    <ion-item-divider>Seus dados</ion-item-divider>
+    <ion-item>
+      <ion-label position="floating">Data de Nascimento</ion-label>
+      <ion-datetime [(ngModel)]="dataNascimento"></ion-datetime>
+    </ion-item>
+  </ion-item-group>
+  <ion-item-group>
+    <ion-item-divider>Resultado: </ion-item-divider>
+    <ion-item>
+      <ion-label>Dias: <strong>{{dias}}</strong></ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Meses: <strong>{{meses}}</strong></ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Anos: <strong>{{anos}}</strong></ion-label>
+    </ion-item>
+  </ion-item-group>
+  <ion-button (click)="calcular()">Calcular</ion-button>
+</ion-content>

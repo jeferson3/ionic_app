@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Fluxo de dinheiro
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label position="floating">Descrição</ion-label>
+    <ion-input [(ngModel)]="descricao"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Valor</ion-label>
+    <ion-input type="number" [(ngModel)]="valor"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Montante: R$ {{montante}}</ion-label>
+  </ion-item>
+  <ion-button shape="block" color="success" (click)="salvar(valor, descricao)">
+    Entrada de dinheiro
+  </ion-button>
+  <ion-button shape="block" color="primary" (click)="salvar(valor*-1, descricao)">
+    Saída de dinheiro
+  </ion-button>
+  <ion-button shape="block" color="danger" (click)="apagarTudo()">
+    Apagar tudo
+  </ion-button>
+  <ion-list>
+    <ion-item-divider>Fluxo de dinheiro</ion-item-divider>
+    <ion-item *ngFor="let item of items">
+      <ion-label>
+        {{item.descricao}}
+      </ion-label>
+      <ion-badge [color]="item.valor >= 0 ? 'primary' : 'danger'">
+        R$ {{item.valor}}
+      </ion-badge>
+    </ion-item>
+  </ion-list>
+</ion-content>
